@@ -106,7 +106,8 @@ export function createAPIClient<
     async onResponse(context) {
       if (
         defaultHeaders["sw-context-token"] !==
-        context.response.headers.get("sw-context-token")
+        context.response.headers.get("sw-context-token") &&
+        context.response.headers.get("sw-context-token") 
       ) {
         const newContextToken =
           context.response.headers.get("sw-context-token") || "";
